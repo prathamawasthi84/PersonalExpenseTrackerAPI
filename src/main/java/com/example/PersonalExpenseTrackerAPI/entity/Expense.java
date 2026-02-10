@@ -23,41 +23,41 @@ public class Expense {
     public Expense(){
 
     }
-    public Expense(Long id,String title,BigDecimal amount,String category,LocalDate time){
+    public Expense(Long id,String title,BigDecimal amount,String category,LocalDate date){
         this.id=id;
         this.amount=amount;
         this.title=title;
         this.category=category;
         this.date =date;
     }
-    public long getId(Long id){
+    public long getId(){
         return id;
     }
-    private void setId(Long id){
+    public void setId(Long id){
         this.id =id;
     }
-    public String getTitle(String title){
+    public String getTitle(){
         return title;
     }
-    private void setTitle(String title){
+    public void setTitle(String title){
         this.title=title;
     }
-    public BigDecimal getAmount(BigDecimal amount){
+    public BigDecimal getAmount(){
         return amount;
     }
-    private void setAmount(BigDecimal amount){
+    public void setAmount(BigDecimal amount){
         this.amount=amount;
     }
-    public String getCategory(String category){
+    public String getCategory(){
         return category;
     }
-    private void setCategory(String category){
+    public void setCategory(String category){
         this.category=category;
     }
-    public LocalDate getDate(LocalDate date){
+    public LocalDate getDate(){
         return date;
     }
-    private void setDate(LocalDate date){
+    public void setDate(LocalDate date){
         this.date = date;
     }
 }
