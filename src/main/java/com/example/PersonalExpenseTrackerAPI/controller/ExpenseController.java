@@ -18,8 +18,13 @@ public class ExpenseController {
         return expenseService.addExpense(expense);
     }
     @GetMapping
-    public List<Expense> getExpense() {
-        return expenseService.getExpenses();
+    public List<Expense> getExpense(@RequestParam(required = false)String category) {
+        if(category==null || category.isEmpty()){
+            return expenseService.getExpenses();
+        }
+        else{
+            return expenseService.filterExpense(category);
+        }
     }
     @GetMapping("/{id}")
     public Expense getById(@PathVariable Long id){

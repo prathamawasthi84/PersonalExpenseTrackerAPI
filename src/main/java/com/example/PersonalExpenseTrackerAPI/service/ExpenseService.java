@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 
@@ -43,5 +42,8 @@ public class ExpenseService {
    }
    public void deleteExpense(Long id){
        expenseRepository.delete(getById(id));
+   }
+   public List<Expense> filterExpense(String category){
+       return expenseRepository.findByCategory(category);
    }
 }
