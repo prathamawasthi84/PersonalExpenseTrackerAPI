@@ -2,6 +2,7 @@ package com.example.PersonalExpenseTrackerAPI.entity;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -15,9 +16,12 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
+    @NotBlank(message="Title is required")
     private String title;
+    @Positive(message="Amount cannot be negative")
     private BigDecimal amount;
     private String category;
+    @NotNull(message = "Date cannot be empty")
     private LocalDate date;
 
     public Expense(){

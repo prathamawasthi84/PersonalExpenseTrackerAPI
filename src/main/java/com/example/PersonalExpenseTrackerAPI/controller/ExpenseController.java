@@ -1,6 +1,7 @@
 package com.example.PersonalExpenseTrackerAPI.controller;
 import com.example.PersonalExpenseTrackerAPI.entity.Expense;
 import com.example.PersonalExpenseTrackerAPI.service.ExpenseService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public class ExpenseController {
      this.expenseService=expenseService;
     }
     @PostMapping
-    public Expense addExpense(@RequestBody Expense expense){
+    public Expense addExpense(@Valid @RequestBody Expense expense){
         return expenseService.addExpense(expense);
     }
     @GetMapping
@@ -25,7 +26,7 @@ public class ExpenseController {
         return expenseService.getById(id);
     }
     @PutMapping("/{id}")
-    public Expense updateExpense(@PathVariable Long id , @RequestBody Expense expense){
+    public Expense updateExpense(@PathVariable Long id ,@Valid @RequestBody Expense expense){
         return expenseService.updateExpense(id, expense);
     }
     @DeleteMapping("/{id}")
