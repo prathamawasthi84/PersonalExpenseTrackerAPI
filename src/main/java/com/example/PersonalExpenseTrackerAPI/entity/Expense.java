@@ -23,6 +23,9 @@ public class Expense {
     private String category;
     @NotNull(message = "Date cannot be empty")
     private LocalDate date;
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private User user;
 
     public Expense(){
 
