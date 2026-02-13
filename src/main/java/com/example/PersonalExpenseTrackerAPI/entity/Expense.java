@@ -14,7 +14,6 @@ import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
 public class Expense {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     @NotBlank(message="Title is required")
     private String title;
@@ -24,7 +23,7 @@ public class Expense {
     @NotNull(message = "Date cannot be empty")
     private LocalDate date;
     @ManyToOne
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     private User user;
 
     public Expense(){
@@ -36,6 +35,12 @@ public class Expense {
         this.title=title;
         this.category=category;
         this.date =date;
+    }
+    public User getUser(){
+        return user;
+    }
+    public void setUser(User user){
+        this.user=user;
     }
     public long getId(){
         return id;

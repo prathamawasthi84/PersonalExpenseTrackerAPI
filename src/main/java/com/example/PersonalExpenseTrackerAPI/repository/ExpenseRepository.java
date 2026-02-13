@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface ExpenseRepository extends JpaRepository<Expense,Long> {
     List<Expense> findByCategory(String category);
+    List<Expense> findByUserId(Long userid);
 }
